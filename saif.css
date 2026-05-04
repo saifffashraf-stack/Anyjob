@@ -1,0 +1,154 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 2. تأثير الظهور التدريجي (الطبقة السوداء الترحيبية) */
+.fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 9999;
+    pointer-events: none;
+    animation: fadeOutEffect 2s ease-in-out forwards;
+}
+
+@keyframes fadeOutEffect {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* 3. شريط البحث العصري باللون الأسود في المنتصف */
+.center-search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* للتوسيط التام */
+    display: flex;
+    align-items: center;
+    width: 500px; /* عرض شريط البحث العصري */
+    background-color: #0d0d0d; /* أسود كربوني فخم */
+    padding: 6px 10px;
+    border-radius: 50px; /* حواف دائرية انسيابية */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* ظل ليعطيه عمقاً */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 10;
+    
+    /* جعل العنصر مخفياً في البداية ثم يظهر بحركة ناعمة */
+    opacity: 0;
+    animation: showSearch 0.5s ease-out 0.5s forwards; /* يتأخر ثانيتين حتى يختفي السواد */
+    transition: 0.3s ease;
+}
+
+/* تأثير عند الوقوف بالماوس على شريط البحث (Glow) */
+.center-search:hover, .center-search:focus-within {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -52%); /* حركة طفو بسيطة للأعلى */
+}
+
+/* حركة ظهور شريط البحث */
+@keyframes showSearch {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%); /* يبدأ من أسفل قليلاً */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%); /* يستقر في المنتصف */
+    }
+}
+
+/* صندوق إدخال النص داخل محرك البحث */
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #ffffff; /* لون النص أبيض ليكون واضحاً فوق الأسود */
+}
+
+.search-input::placeholder {
+    color: #666666; /* لون النص الترحيبي */
+}
+
+/* زر العدسة المكبرة الدائري */
+
+/* ---------------------------------------------------- */
+/* 4. كود القائمة الجانبية بالخط الأسود البارز */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: -240px;
+    background-color: #111111;
+    overflow-x: hidden;
+    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    padding-top: 60px;
+    border-right: 10px solid #000000;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar:hover {
+    left: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.sidebar a {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s ease;
+    text-align: left;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+    padding-left: 35px;
+    background-color: #1a1a1a;
+}
+
+.creator-text {
+    position: absolute;
+    margin-top: 196%;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    font-size: 14px;
+    color: #666666;
+    font-family: Arial, sans-serif;
+    pointer-events: none;
+}
+.h1{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: #000000;
+    font-family: 'Arial Black', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
