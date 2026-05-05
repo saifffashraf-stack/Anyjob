@@ -16,7 +16,6 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* 2. تأثير الظهور التدريجي (الطبقة السوداء الترحيبية) */
 .fade-overlay {
     position: fixed;
     top: 0;
@@ -34,15 +33,14 @@ body {
     100% { opacity: 0; visibility: hidden; }
 }
 
-/* 3. شريط البحث العصري باللون الأسود في المنتصف */
 .center-search {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* للتوسيط التام */
+    transform: translate(-50%, -50%); 
     display: flex;
     align-items: center;
-    width: 500px; /* عرض شريط البحث العصري */
+    width: 500px; 
     background-color: #0d0d0d; /* أسود كربوني فخم */
     padding: 6px 10px;
     border-radius: 50px; /* حواف دائرية انسيابية */
@@ -86,7 +84,7 @@ body {
 }
 
 .search-input::placeholder {
-    color: #666666; /* لون النص الترحيبي */
+    color: #524f4f; /* لون النص الترحيبي */
 }
 
 /* زر العدسة المكبرة الدائري */
@@ -111,6 +109,7 @@ body {
 }
 
 .sidebar:hover {
+    transition: 0.3s ease; /* دي اللي بتخلي التكبير يحصل بالراحة */
     left: 0;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -151,4 +150,12 @@ body {
     color: #000000;
     font-family: 'Arial Black', Arial, sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+/* لما تكون الشاشة أصغر من 600 بكسل (موبايلات) */
+@media screen and (max-width: 600px) {
+    
+    /* نصغر عرض محرك البحث عشان ميتطلعش بره الشاشة */
+    .center-search {
+        width: 60%; /* ياخد 90% من عرض الموبايل */
+    }
 }
